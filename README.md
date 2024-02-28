@@ -13,3 +13,9 @@ This project is a through application for predicting prices of certain domains w
 
 
 We used complex algorithms because the datasets that we had we very complex.
+
+Blogs about my project:
+
+[Revolutionizing Pricing Estimation Across Domains with Machine Learning.](https://mudassirjunejo6.wordpress.com/2024/02/25/revolutionizing-pricing-estimation-across-domains-with-machine-learning/)
+
+[Machine Learning-Based Price Estimation: A Practical Approach.](https://medium.com/@muddassir10/machine-learning-based-price-estimation-a-practical-approach-7164b35d10fd)
