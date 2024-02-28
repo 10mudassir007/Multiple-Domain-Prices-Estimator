@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Predictor</title>
+    <style>
+        body {
+            display: flex;
+            min-height: 120vh;
+            background-image: url("{{ url_for('static', filename='n4.jpeg') }}");
+            background-size: cover;
+            background-position: center;
+            background-color: skyblue;
+            margin: 0;
+            padding: 0;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        h1 {
+            font-size: 40px;
+            font-family:"Calibri", sans-serif;
+            color: orangered;
+        }
+
+        form {
+            width: 500PX;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .2);
+            padding: 40px 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(18px);
+            color: orange;
+            border-radius: 19px;
+            width: 350px;
+            text-align: center;
+        }
+
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #2b2323;
+            border-radius: 16px;
+            box-sizing: border-box;
+            background: transparent;
+            color: orangered;
+}
+        input {
+            background-color: transparent;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #2b2323;
+            border-radius: 16px;
+        }
+
+
+
+
+
+        button {
+            position: relative;
+            background-color: skyblue;
+            color: orangered;
+            padding: 11px;
+            border: none;
+            border-radius: 19px;
+            cursor: pointer;
+            width: 106%;
+            font-size: 15px;
+            font-family: "Pacifico", cursive;
+            font-weight: bold;
+        }
+
+        button::after {
+            content: "Predict";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: orangered;
+            color: skyblue;
+            padding: 10px;
+            border: none;
+            border-radius: 19px;
+            cursor: pointer;
+            width: 95%;
+            font-size: 15px;
+            font-family: 'Pacifico', cursive;
+            font-weight: bold;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        button:hover::after {
+            opacity: 1;
+        }
+
+        p {
+            margin-top: 22px;
+            font-size: 30px;
+            color: orangered;
+            font-family: "Calibri", sans-serif;
+            font-weight: bold;
+        }
+
+        label {
+            text-align: center;
+            color: orangered;
+            background: trans;
+            font-family: "Calibri", sans-serif;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>House Price Predictor</h1>
+
+    <form action="{{ url_for('houses') }}" method="post">
+        <label for="house_size">Size of the house(sqft) </label>
+        <input type="text" name="house_size" id="house_size" required>
+
+        <label for="rooms">No.of bedrooms</label>
+        <input type="text" name="rooms" id="rooms" required>
+
+        <label for="brooms">No.of bathrooms</label>
+        <input type="text" name="brooms" id="brooms" required>
+
+        <label for="stories">No.of stories</label>
+        <input type="text" name="stories" id="stories" required>
+
+        <label for="parking">No.of vehicles that can be parked</label>
+        <input type="text" name="parking" id="parking" required>
+
+        <label for="mainroad">Is the house on mainroad?</label>
+        <select type='text' id="mainroad" name="mainroad">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <br>
+
+        <label for="guestroom">Is guestroom available?</label>
+        <br>
+        <select type='text' id="guestroom" name="guestroom">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        
+        <br>
+        <label for="basement">Does the house have basement available?</label>
+        <select type='text' id="basement" name="basement">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        
+        <br>
+
+        <label for="hotwaterheating">Is hotwaterheating available?</label>
+        <select type='text' id="hotwaterheating" name="hotwaterheating">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        
+
+        <br>
+        <label for="airconditioning">Does the house have air conditioning?</label>
+        <select type='text' id="airconditioning" name="airconditioning">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+
+        <br>
+        <label for="prefarea">Does the house have prefered areas(kitchen,lounge, etc)?</label>
+        <select type='text' id="prefarea" name="prefarea">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+
+        <br>
+        <label for="furnishingstatus">Furnishing Status</label>
+        <select type='text' id="furnishingstatus" name="furnishingstatus">
+            <option value="Furnished">Furnished</option>
+            <option value="Semi-furnished">Semi-furnished</option>
+            <option value="Unfurnished">Unfurnished</option>
+        </select>       
+        
+        <br>
+        <br>
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction_houses %}
+        <p>{{ prediction_houses }}</p>
+    {% endif %}
+</body>
+
+</html>

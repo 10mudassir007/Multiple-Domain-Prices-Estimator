@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Predictor</title>
+    <style>
+        body {
+            display: flex;
+            min-height: 120vh;
+            background-image:url("{{ url_for('static', filename='n2.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-color: skyblue;
+            margin: 0;
+            padding: 0;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        h1 {
+            font-size: 40px;
+            font-family:"Calibri", sans-serif;
+            color:rgb(255, 183, 0);
+        }
+
+        form {
+            width: 500PX;
+            background: transparent;
+            border: 2px solid rgba(255,255,255,.2);
+            padding: 40px 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(18px);
+            color : orange;
+            border-radius: 19px;
+            width: 350px;
+            text-align: center;
+        }
+
+
+input {
+    background-color:aqua;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #2b2323;
+    border-radius: 16px;
+}
+
+
+      
+        
+
+        button {
+            position: relative;
+            background-color: aqua;
+            color:blue;
+            padding: 11px;
+            border: none;
+            border-radius: 19px;
+            cursor: pointer;
+            width: 106%;
+            font-family: 'Calibri', cursive;
+            font-size: 15px;
+            font-weight: bold;
+            height: auto;
+        }
+
+        button::after {
+            content: "Predict";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: blue;
+            color: aqua;
+            padding: 11px;
+            border: none;
+            border-radius: 19px;
+            cursor: pointer;
+            width: 95%;
+            font-size: 15px;
+            font-family: 'Calibri', cursive;
+            font-weight: bold;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            height: auto;
+        }
+
+        button:hover::after {
+            opacity: 1;
+        }
+
+        p {
+            margin-top: 22px;
+            font-size: 30px;
+            color:rgb(255, 183, 0);
+            font-family:"Calibri", sans-serif;
+            font-weight: bold;
+        }
+
+        label {
+            text-align: center;
+            color:rgb(255, 183, 0);
+            background: trans;
+            font-family:"Calibri", sans-serif;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Laptop Price Predictor</h1>
+
+    <form action="{{ url_for('laptops') }}" method="post">
+
+
+        <label for="brand">Brand name of the laptop</label>
+        <input type="text" name="brand" id="brand" required>
+
+        <label for="model">Model name of the laptop</label>
+        <input type="text" name="model" id="model" required>
+
+        <label for="gen">Generation of the laptop</label>
+        <input type="text" name="gen" id="gen" required>
+
+        <label for="core">Number of cores in the laptop</label>
+        <input type="text" name="core" id="core" required>
+
+        <label for="ram">RAM in the laptop in GBs</label>
+        <input type="text" name="ram" id="ram" required>
+
+        <label for="Storage">Storage in the laptop in GBs</label>
+        <input type="text" name="Storage" id="Storage" required>
+
+        <label for="screen">Size of screen (inches)</label>
+        <input type="text" name="screen" id="screen" required>
+
+
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction_laptops %}
+        <p>{{ prediction_laptops }}</p>
+    {% endif %}
+</body>
+</html>
