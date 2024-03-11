@@ -8,7 +8,7 @@ from sklearn.metrics import mean_absolute_error,mean_squared_error,r2_score
 
 
 #LOADING DATA , THE CSV FILE SHOULD BE IN THE SAME LOCATION AS THE TERMINAL LOCATION OR CHANGE THE LOCATION OF THE TERMINAL TO WHERE THE FILE IS SAVED USING cd commands
-df = pd.read_csv('https://raw.githubusercontent.com/10mudassir007/Multiple-Domain-Prices-Estimator/main/mobiles/cleanedmobiles.csv').head(1339)
+df = pd.read_csv('Multiple-Domain-Prices-Estimator/cleanedmobiles.csv').head(1339)
 df = df[['Brand_10.or',
        'Brand_Alcatel', 'Brand_Apple',
        'Brand_Asus',  'Brand_BlackBerry', 'Brand_Comio',

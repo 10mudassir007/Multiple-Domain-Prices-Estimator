@@ -4,12 +4,9 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split,cross_val_score,KFold
 from sklearn.metrics import mean_absolute_error,mean_squared_error,r2_score
-
-
-from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.linear_model import SGDRegressor
 
-df = pd.read_csv('https://raw.githubusercontent.com/10mudassir007/Multiple-Domain-Prices-Estimator/main/house/Housing1.csv')
+df = pd.read_csv('F:\Files\Portfolio\Multiple-Domain-Prices-Estimator\Housing1.csv')
 #df['Area'] = df['Area'] /1000
 
 
